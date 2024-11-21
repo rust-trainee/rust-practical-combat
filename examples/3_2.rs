@@ -1,4 +1,5 @@
 #![allow(unused_variables)]
+/// 使用结构体为文件建模
 
 #[derive(Debug)]
 struct File {
