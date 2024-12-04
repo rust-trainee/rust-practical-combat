@@ -13,4 +13,5 @@ fn main() {
     // 再将其转换为 f32 类型
     let b: f32 = unsafe { std::mem::transmute(frankentype) };
     println!("{}", b);
+    //单个字节内部的布局顺序的偏好叫做位编号或者位端序
 }

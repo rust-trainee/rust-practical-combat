@@ -12,7 +12,7 @@ fn main() {
     use std::time::{Duration, Instant};
 
     let mut count = 0;
-    //  创建一个Duration实例，表示1个1s的时间间隔
+    //  创建一个Duran实例，表示1个1s的时间间隔
     let time_limit = Duration::new(1, 0);
     //  访问系统的时钟时间。
     let start = Instant::now();
