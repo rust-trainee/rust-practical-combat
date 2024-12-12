@@ -4,5 +4,8 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+graphics = "0.3.0"
 num = "0.4.3"
+piston2d-graphics = "0.45.0"
+piston_window = "0.132.0"
 rand = "0.8.5"
