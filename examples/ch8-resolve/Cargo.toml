@@ -1,0 +1,9 @@
+[package]
+name = "ch8-resolve"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = "4.5.23"
+rand = "0.8.5"
+trust-dns = "0.23.2"
