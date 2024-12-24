@@ -1,4 +1,4 @@
-use chrono::{DateTime, Local};
+use chrono::{DateTime, Local, TimeZone};
 use clap::{App, Arg};
 
 struct Clock;
@@ -8,8 +8,22 @@ impl Clock {
         Local::now()
     }
 
-    fn set() -> ! {
-        unimplemented!()
+    #[cfg(not(windows))]
+    fn set<Tz: TimeZone>(t: DateTime<Tz>) {
+        use std::mem::zeroed;
+
+        use libc::{settimeofday, suseconds_t, time_t, timeval, timezone};
+
+        let t = t.with_timezone(&Local);
+        let mut u: timeval = unsafe { zeroed() };
+
+        u.tv_sec = t.timestamp() as time_t;
+        u.tv_usec = t.timestamp_subsec_micros() as suseconds_t;
+
+        unsafe {
+            let mock_tz: *const timezone = std::ptr::null();
+            settimeofday(&u as *const timeval, mock_tz);
+        }
     }
 }
 fn main() {
