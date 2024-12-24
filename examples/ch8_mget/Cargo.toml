@@ -1,0 +1,11 @@
+[package]
+name = "mget"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = "2"
+rand = "0.7"
+smoltcp = { version = "0.6", features = ["phy-raw_socket", "phy-tap_interface"] }
+trust-dns = { version = "0.16", default-features = false }
+url = "2"
